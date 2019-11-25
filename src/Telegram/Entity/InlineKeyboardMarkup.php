@@ -2,7 +2,7 @@
 
 namespace Selaz\Telegram\Entity;
 
-class InlineKeyboardMarkup {
+class InlineKeyboardMarkup extends KeyboardMarkup {
 	
 	protected $buttons = [];
 	

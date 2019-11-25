@@ -9,7 +9,7 @@ use CURLFile,
 	Selaz\Telegram\Entity\Entity,
 	Selaz\Telegram\Entity\File,
 	Selaz\Telegram\Entity\File as TFile,
-	Selaz\Telegram\Entity\InlineKeyboardMarkup,
+	Selaz\Telegram\Entity\KeyboardMarkup,
 	Selaz\Telegram\Entity\Message,
 	Selaz\Telegram\Entity\Update,
 	Selaz\Telegram\Entity\User,
@@ -72,7 +72,7 @@ class BotApi {
 	 * @param Chat $chat
 	 * @param string $text
 	 * @param Message $replyToMessageId
-	 * @param InlineKeyboardMarkup $inlineKeyboardMarkup
+	 * @param KeyboardMarkup $keyboardMarkup
 	 * @param string $parseMode
 	 * @param bool $disableWebPagePreview
 	 * @param bool $disableNotification
@@ -82,7 +82,7 @@ class BotApi {
 		Chat $chat, 
 		string $text, 
 		Message $replyToMessageId = null,
-		InlineKeyboardMarkup $inlineKeyboardMarkup = null,
+		KeyboardMarkup $keyboardMarkup = null,
 		string $parseMode = null, 
 		bool $disableWebPagePreview = null, 
 		bool $disableNotification = null
@@ -94,7 +94,7 @@ class BotApi {
 			'disableWebPagePreview' => $disableWebPagePreview,
 			'disableNotification' => $disableNotification,
 			'replyToMessageId' => ($replyToMessageId) ? $replyToMessageId->getMessageId() : null,
-			'replyMarkup' => ($inlineKeyboardMarkup) ? $inlineKeyboardMarkup->serialize() : null,
+			'replyMarkup' => ($keyboardMarkup) ? $keyboardMarkup->serialize() : null,
 		];
 		
 		$this->sendChatAction($chat, 'typing');
