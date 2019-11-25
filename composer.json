@@ -1,0 +1,17 @@
+{
+	"name": "selaz/tg-bot",
+	"description": "Garage telegram bot",
+	"authors": [
+		{
+			"name": "Pavel Shamshin",
+			"email": "odan@selaz.org"
+		}
+	],
+	"require": {
+	},
+	"autoload": {
+		"psr-4": {
+			"Selaz\\": ["src/"]
+		}
+	}
+}
