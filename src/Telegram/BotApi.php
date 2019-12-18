@@ -124,7 +124,7 @@ class BotApi {
 			'photo' => new CURLFile($photo),
 			'caption' => $caption,
 			'disableNotification' => $disableNotification,
-			'replyToMessageId' => (!$replyToMessageId) ?: $replyToMessageId->getMessageId(),
+			'replyToMessageId' => ($replyToMessageId) ? $replyToMessageId->getMessageId() : null,
 		];
 		
 		$this->sendChatAction($chat, 'upload_photo');
