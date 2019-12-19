@@ -163,7 +163,7 @@ class BotApi {
 			'width' => $width,
 			'height' => $height,
 			'disableNotification' => $disableNotification,
-			'replyToMessageId' => (!$replyToMessageId) ?: $replyToMessageId->getMessageId(),
+			'replyToMessageId' => ($replyToMessageId) ? $replyToMessageId->getMessageId() : null,
 		];
 		
 		$this->sendChatAction($chat, 'upload_video');
