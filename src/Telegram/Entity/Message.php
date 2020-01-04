@@ -25,7 +25,7 @@ class Message extends Entity {
 
 	/**
 	 * get message user
-	 * @return \Selaz\TelegramEntity\User
+	 * @return \Selaz\Telegram\Entity\User
 	 */
 	public function getFrom() : User {
 		return $this->from;
@@ -42,7 +42,7 @@ class Message extends Entity {
 	/**
 	 * get message chat
 	 * 
-	 * @return \Selaz\TelegramEntity\Chat
+	 * @return \Selaz\Telegram\Entity\Chat
 	 */
 	public function getChat() : Chat {
 		return $this->chat;
@@ -85,7 +85,7 @@ class Message extends Entity {
 
 	/**
 	 * 
-	 * @return \Selaz\TelegramEntity\Video
+	 * @return \Selaz\Telegram\Entity\Video
 	 */
 	public function getVideo() : Video {
 		return $this->video;
@@ -103,16 +103,16 @@ class Message extends Entity {
 	/**
 	 * return location from message
 	 * 
-	 * @return \Selaz\TelegramEntity\Location
+	 * @return \Selaz\Telegram\Entity\Location
 	 */
-	public function getLocation() : Location {
+	public function getLocation(): ?Location {
 		return $this->location;
 	}
 
 	/**
 	 * return venue from message
 	 * 
-	 * @return \Selaz\TelegramEntity\Venue
+	 * @return \Selaz\Telegram\Entity\Venue
 	 */
 	public function getVenue() : Venue {
 		return $this->venue;
