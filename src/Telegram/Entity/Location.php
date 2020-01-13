@@ -2,7 +2,7 @@
 
 namespace Selaz\Telegram\Entity;
 
-class Location {
+class Location extends Entity {
 
     /** @var float */
     private $longitude;
