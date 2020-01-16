@@ -10,6 +10,8 @@ class Message extends Entity {
 	protected $text;
 	protected $photo;
 	protected $video;
+	protected $animation;
+	protected $document;
 	protected $caption;
 	protected $location;
 	protected $venue;
@@ -208,4 +210,48 @@ class Message extends Entity {
 	public function setVenue(array $venue) {
 		$this->venue = new Venue($venue);
 	}
+	
+	/**
+	 * Message is an animation, information about the animation. 
+	 * For backward compatibility, when this field is set, 
+	 * the document field will also be set
+	 * 
+	 * @return \Selaz\Telegram\Entity\Animation|null
+	 */
+	public function getAnimation(): ?Animation {
+		return $this->animation;
+	}
+
+	/**
+	 * Message is a general file, information about the file
+	 * 
+	 * @return \Selaz\Telegram\Entity\Document|null
+	 */
+	public function getDocument(): ?Document {
+		return $this->document;
+	}
+
+	/**
+	 * Message is an animation, information about the animation. 
+	 * For backward compatibility, when this field is set, 
+	 * the document field will also be set
+	 * 
+	 * @param array $animation
+	 * @return void
+	 */
+	public function setAnimation(?array $animation): void {
+		$this->animation = new Animation($animation);
+	}
+
+	/**
+	 * Message is a general file, information about the file
+	 * 
+	 * @param array $document
+	 * @return void
+	 */
+	public function setDocument(?array $document): void {
+		$this->document = new Document($document);
+	}
+
+
 }
