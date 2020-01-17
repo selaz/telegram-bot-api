@@ -232,7 +232,7 @@ class BotApi {
 	 * @param string $method
 	 * @param array $params
 	 * @param string $prefix
-	 * @return type
+	 * @return mixed
 	 * @throws QueryException
 	 */
 	private function query( string $method, array $params = [], $prefix = null ) {

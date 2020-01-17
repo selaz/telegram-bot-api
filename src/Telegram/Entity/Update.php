@@ -10,6 +10,17 @@ class Update extends Entity {
 	
 	protected $callbackQuery;
 
+	protected $editedMessage;
+
+
+	public function getEditedMessage(): ?Message  {
+		return $this->editedMessage;
+	}
+
+	public function setEditedMessage(?array $editedMessage): void {
+		$this->editedMessage = new Message($editedMessage);
+	}
+
 
 	/**
 	 * return update id
@@ -25,7 +36,7 @@ class Update extends Entity {
 	 * 
 	 * @return \Selaz\Telegram\Entity\Message
 	 */
-	public function getMessage() : Message {
+	public function getMessage(): ?Message {
 		return $this->message;
 	}
 
@@ -43,7 +54,7 @@ class Update extends Entity {
 	 * 
 	 * @param array $data
 	 */
-	public function setMessage(array $data) {
+	public function setMessage(?array $data): void {
 		$this->message = new Message($data);
 	}
 	
