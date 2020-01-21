@@ -22,7 +22,7 @@ class Message extends Entity {
 		$this->replyToMessage = new Message($message);
 	}
 
-	public function getReplyToMessage(): Message {
+	public function getReplyToMessage(): ?Message {
 		return $this->replyToMessage;
 	}
 
