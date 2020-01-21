@@ -15,7 +15,36 @@ class Message extends Entity {
 	protected $caption;
 	protected $location;
 	protected $venue;
-	
+	protected $replyToMessage;
+	protected $entities;
+
+	public function setReplyToMessage(array $message): void {
+		$this->replyToMessage = new Message($message);
+	}
+
+	public function getReplyToMessage(): Message {
+		return $this->replyToMessage;
+	}
+
+	/**
+	 * Для текстовых сообщений: особые сущности в тексте сообщения.
+	 * @return MessageEntity[]
+	 */
+	public function getEntities(): ?array {
+		return $this->entities;
+	}
+
+	/**
+	 * Для текстовых сообщений: особые сущности в тексте сообщения.
+	 * @param $data ?array
+	 */
+	public function setEntities(?array $data): void {
+		$this->entities = [];
+		foreach ($data as $entity) {
+			$this->entities[] = new MessageEntity($entity);
+		}
+	}
+
 	/**
 	 * return message id
 	 * 
