@@ -245,6 +245,38 @@ class BotApi {
 		return $res;
 	}
 
+		/**
+	 * Send message to chat
+	 * 
+	 * @param Chat $chat
+	 * @param string $text
+	 * @param Message $replyToMessageId
+	 * @param KeyboardMarkup $keyboardMarkup
+	 * @param string $parseMode
+	 * @param bool $disableWebPagePreview
+	 * @param bool $disableNotification
+	 * @return Message
+	 */
+	public function editMessageText( 
+		Chat $chat, 
+		Message $message,
+		string $text, 
+		KeyboardMarkup $keyboardMarkup = null,
+		string $parseMode = null, 
+		bool $disableWebPagePreview = null
+	) {
+		$params = [
+			'chatId' => $chat->getId(),
+			'messageId' => $message->getMessageId(),
+			'text' => $text,
+			'parseMode' => $parseMode,
+			'disableWebPagePreview' => $disableWebPagePreview,
+			'replyMarkup' => ($keyboardMarkup) ? $keyboardMarkup->serialize() : null,
+		];
+		
+		return new Message($this->query('editMessageText', $params));
+	}
+
 	/**
 	 * Query to telegram bot api
 	 * 
