@@ -59,7 +59,6 @@ class File {
 	protected function newFile() : string {
 		$this->path = tempnam(sys_get_temp_dir(), 'PHP-TBA');
 		$this->touch();
-		$this->chmod('0664');
 		return $this->path;
 	}
 	
