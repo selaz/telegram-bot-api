@@ -32,7 +32,7 @@ class File {
 	
 	public function __destruct() {
 		if ($this->tempFile) {
-			$this->remove();
+		$this->remove();
 		}
 	}
 	
@@ -206,6 +206,7 @@ class File {
 			throw new \Exception(sprintf('Can`t move file %s to %s', $this->path, $newPath));
 		} else {
 			$this->path = $newPath;
+			$this->tempFile = false;
 			return true;
 		}
 	}

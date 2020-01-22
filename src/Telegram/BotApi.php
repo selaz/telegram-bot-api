@@ -59,7 +59,7 @@ class BotApi {
 	 * Return file by path
 	 * 
 	 * @param string $path
-	 * @return File
+	 * @return TFile
 	 */
 	public function getFile(string $path) {
 		$data = $this->query('getFile', [ 'file_id' => $path ]);
@@ -227,6 +227,25 @@ class BotApi {
 	}
 
 	/**
+	 * Undocumented function
+	 *
+	 * @param TFile $file
+	 * @return File|false
+	 */
+	public function downloadFile(TFile $file) {
+		$url = sprintf(self::API_URL, 'file/', $this->token, $file->getFilePath());
+		$http = new Query($url);
+		$res = $http->download(new File(null,true));
+
+		if ($this->debug) {
+			printf(">>> %s\n", $http->getUrl());
+			printf("<<< %s\n", $http->getQueryResult());
+		}
+
+		return $res;
+	}
+
+	/**
 	 * Query to telegram bot api
 	 * 
 	 * @param string $method
@@ -244,7 +263,6 @@ class BotApi {
 		$params = Entity::arrayFromCamelCase(array_filter($params));
 		
 		$http = new Query(sprintf(self::API_URL, $prefix, $this->token, $method));
-		$http->set(CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5_HOSTNAME);
 		$http->set(CURLOPT_POST, true);
 		$http->set(CURLOPT_POSTFIELDS, $params);
 		$http->set(CURLOPT_RETURNTRANSFER, true);
