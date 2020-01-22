@@ -5,10 +5,10 @@ namespace Selaz\Telegram\Entity;
 class Location extends Entity {
 
     /** @var float */
-    private $longitude;
+    protected $longitude;
     
     /** @var float */
-    private $latitude;
+    protected $latitude;
 
     public function setLatitude(?float $latitude): void {
         $this->latitude = $latitude;
