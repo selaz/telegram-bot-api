@@ -63,7 +63,7 @@ class Update extends Entity {
 	 * 
 	 * @return \Selaz\TelegramEntity\CallbackQuery
 	 */
-	public function getCallbackQuery() : CallbackQuery {
+	public function getCallbackQuery(): ?CallbackQuery {
 		return $this->callbackQuery;
 	}
 

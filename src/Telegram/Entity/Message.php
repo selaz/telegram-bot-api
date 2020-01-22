@@ -18,6 +18,10 @@ class Message extends Entity {
 	protected $replyToMessage;
 	protected $entities;
 
+	public function setCaptionEntities(?array $data) {
+		$this->setEntities($data);
+	}
+
 	public function setReplyToMessage(array $message): void {
 		$this->replyToMessage = new Message($message);
 	}
