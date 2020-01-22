@@ -50,10 +50,12 @@ abstract class Entity {
 		foreach ($values as $varName => $varValue) {
 			if ($varValue instanceof Entity) {
 				$arr[ self::fromCamelCase($varName) ] = $varValue->toArray();
+			} elseif (is_array($varValue)) {
+				$arr[ self::fromCamelCase($varName) ] = self::arrayFromCamelCase($varValue);
 			} else {
 				$arr[ self::fromCamelCase($varName) ] = $varValue;
 			}
 		}
-		return array_filter($arr);
+		return array_filter($arr, function ($z){return !is_null($z);});
 	}
 }
