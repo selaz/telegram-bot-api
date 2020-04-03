@@ -55,7 +55,7 @@ class Message extends Entity {
 	 * @return int
 	 */
 	public function getMessageId() : int {
-		return $this->messageId;
+		return $this->messageId ?? 0;
 	}
 
 	/**
